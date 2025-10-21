@@ -1,0 +1,123 @@
+/* Estilo base */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #74ABE2, #5563DE);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.calculator {
+    background: #1e1e2e;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    width: 320px;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: minmax(120px, auto) 1fr;
+}
+
+/* Pantalla */
+.output-prev, .output-curr {
+    color: #fff;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: right;
+    padding: 5px 10px;
+}
+
+.output-prev {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    min-height: 20px;
+}
+
+.output-curr {
+    font-size: 2.5rem;
+    font-weight: 600;
+    min-height: 50px;
+}
+
+/* Botonera */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Botones */
+button {
+    font-size: 1.3rem;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #2e2e3e;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+button:hover {
+    background: #3d3d52;
+    transform: scale(1.05);
+}
+
+/* Botones especiales */
+button.utility {
+    background: #ff6363;
+}
+
+button.utility:hover {
+    background: #ff4a4a;
+}
+
+button[data-operation] {
+    background: #5563DE;
+}
+
+button[data-operation]:hover {
+    background: #6b79f7;
+}
+
+button.equals {
+    background: #27ae60;
+}
+
+button.equals:hover {
+    background: #2ecc71;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Animación de click */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+
+    .output-curr {
+        font-size: 2rem;
+    }
+}
