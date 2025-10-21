@@ -128,4 +128,52 @@ deleteButton.addEventListener('click', () => {
     calculator.updateDisplay();
 });
 
+
 calculator.updateDisplay();
+
+
+// ------------------------------------------------------------------
+// --- Prueba Unitaria para el método estático 'add' (Suma Pura) ---
+// ------------------------------------------------------------------
+function testAdd() {
+    console.log('--- Iniciando Prueba Unitaria: Calculator.add ---');
+    let passed = true;
+    
+    /**
+     * Función de aserción simple
+     * @param {number} actual El resultado obtenido.
+     * @param {number} expected El resultado esperado.
+     * @param {string} testName Nombre o descripción del caso de prueba.
+     */
+    function assertEqual(actual, expected, testName) {
+        if (actual === expected) {
+            console.log(`✅ ${testName}: Éxito. Esperado: ${expected}, Obtenido: ${actual}`);
+        } else {
+            console.error(`❌ ${testName}: Falló. Esperado: ${expected}, Obtenido: ${actual}`);
+            passed = false;
+        }
+    }
+
+    // Caso de prueba 1: Números enteros positivos
+    assertEqual(Calculator.add(5, 3), 8, "Test 1 (5 + 3)");
+
+    // Caso de prueba 2: Números negativos y positivos
+    assertEqual(Calculator.add(-1, 10), 9, "Test 2 (-1 + 10)");
+
+    // Caso de prueba 3: Números decimales
+    assertEqual(Calculator.add(1.5, 2.5), 4.0, "Test 3 (1.5 + 2.5)");
+
+    // Caso de prueba 4: Suma a cero
+    assertEqual(Calculator.add(0, 7), 7, "Test 4 (0 + 7)");
+
+
+    if (passed) {
+        console.log('\n✨ Todas las pruebas unitarias para Calculator.add pasaron exitosamente. ✨');
+    } else {
+        console.log('\n🚨 Fallaron una o más pruebas unitarias para Calculator.add. 🚨');
+    }
+    console.log('------------------------------------------------------------------');
+}
+
+// Ejecutar las pruebas unitarias
+testAdd();
